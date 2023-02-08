@@ -1,0 +1,22 @@
+#DAY 12: SCOPE & NUMBER GUESSING GAME
+
+import random
+
+number_to_guess = random.randint(1, 100)
+lives = 10
+
+print("Welcome to the guessing game!")
+
+while lives > 0:
+    user_guess = int(input("Enter a number between 1 and 100: "))
+    if user_guess == number_to_guess:
+        print("Congratulations! You guessed the number.")
+
+    elif user_guess > number_to_guess:
+        print("Too high. You have", lives - 1, "lives left")
+        lives -= 1
+    else:
+        print("Too low. You have", lives - 1, "lives left")
+        lives -= 1
+if lives == 0:
+    print("You have no more lives. The number was", number_to_guess)
