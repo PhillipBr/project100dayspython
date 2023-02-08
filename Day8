@@ -1,0 +1,22 @@
+#DAY 8: CAESAR CIPHER
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+while True:
+    word = input("Enter a word: ")  #user inputs the word
+    shift = int(input("Enter a number to shift by: "))  #user inputs the number of shift
+    encrypted_word = ""
+
+    for letter in word:
+        if letter.isalpha():  #checks if letter is alphabetic
+            index = alphabet.index(letter.lower())  #finds the index of that letter in the alphabet list
+            new_index = (index + shift) % 26  #shifts the letter to the right
+            new_letter = alphabet[new_index]  #finds the new letter shifted
+            if letter.isupper():  #checks if the letter is uppercase
+                new_letter = new_letter.upper()  #converts the letter to uppercase
+            encrypted_word += new_letter  #adds the shifted letter to the new word
+        else:
+            encrypted_word += letter
+    print("Encrypted word: ",encrypted_word)
+    again = input("Do you want to encrypt another word? (yes/no)") #ask the user if wants to add other word
+    if again.lower() == "no":
+        break
