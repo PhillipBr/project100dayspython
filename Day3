@@ -1,0 +1,37 @@
+# DAY 3: TREASURE ISLAND
+print("Welcome to Treasure Island, Your mission is to find the treasure")
+print ("You find yourself on a beautiful island, you look around and see two paths.")
+print ("Answer with Uppercase in first character")
+print ("")
+print("One path leads to the left, the other to the right.")
+path = input("Which path would you like to take? Left or Right? ")
+if path == "Left":
+    print("You decided to take the left path, you walk for a while and you reach a river.")
+    print("You see a boat, but it seems to be in poor condition.")
+    choice = input("Do you want to swim across the river or wait for a better opportunity? ")
+    if choice == "Swim":
+        print("You decided to swim across the river, but the current was too strong.")
+        print("You were swept away and drowned.")
+        print("Game Over.")
+    elif choice == "Wait":
+        print("You decided to wait for a better opportunity.")
+        print("After a while, a strong gust of wind came and blew the boat across the river.")
+        print("You got on the boat and crossed the river safely.")
+        print("You reached the other side of the river and found a door.")
+        door = input("The door has three colors, Red, Blue and Yellow. Which one do you choose? ")
+        if door == "Red":
+            print("You decided to open the red door.")
+            print("As soon as you opened the door, you were hit by a trap.")
+            print("Game Over.")
+        elif door == "Blue":
+            print("You decided to open the blue door.")
+            print("As soon as you opened the door, you were hit by a trap.")
+            print("Game Over.")
+        elif door == "Yellow":
+            print("You decided to open the yellow door.")
+            print("As soon as you opened the door, you found the treasure!")
+            print("Congratulations! You have won the game.")
+elif path == "Right":
+    print("You decided to take the right path, but it was a trap.")
+    print("You fell into a pit and died.")
+    print("Game Over.")
