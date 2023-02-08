@@ -1,0 +1,13 @@
+# DAY 2: TIP CALCULATOR
+bill = float(input("What is the total bill? "))
+tip_options = ["10%", "15%", "20%", "other"]
+tip = input("What percentage tip would you like to give? " + str(tip_options) + " ")
+if tip == "other":
+    tip = float(input("Please enter a custom tip percentage: "))
+else:
+    tip = float(tip.strip("%"))
+tip_total = bill * (tip / 100)
+total = bill + tip_total
+split = int(input("How many people would you like to split the bill? "))
+amount_per_person = total / split
+print(f"Each person should pay ${amount_per_person:.2f}, where ${bill/split:.2f} is for the bill and ${tip_total/split:.2f} is for the tip.")
