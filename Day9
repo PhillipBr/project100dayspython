@@ -1,0 +1,16 @@
+#DAY 9: AUCTION PROGRAM (BID)
+winner = {"name": "", "bid": 0}
+
+while True:
+    name = input("What is your name? ")
+    bid = float(input("How much is your bid? "))
+
+    if bid > winner["bid"]:
+        winner["name"] = name
+        winner["bid"] = bid
+
+    more_bidders = input("Are there any other bidders? (yes/no) ")
+    if more_bidders.lower() == "no":
+        break
+
+print("The winner is " + winner["name"] + " with a bid of $" + str(winner["bid"]))
