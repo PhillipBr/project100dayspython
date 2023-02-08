@@ -1,0 +1,77 @@
+#DAY 11: BLACK JACK
+
+import random
+
+# list of cards in the deck
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+# function to calculate the value of a hand
+def calculate_hand(hand):
+    total = sum(hand)
+    # check for aces
+    for card in hand:
+        if card == 11:
+            if total > 21:
+                total -= 10
+    return total
+
+# function to play a round of blackjack
+def play_blackjack():
+    # deal the initial hand
+    player_hand = [random.choice(cards), random.choice(cards)]
+    dealer_hand = [random.choice(cards), random.choice(cards)]
+
+    # show the initial hands
+    print("Player's hand:", player_hand)
+    print("Dealer's hand:", dealer_hand[0])
+
+    # check if player has blackjack
+    if calculate_hand(player_hand) == 21:
+        print("Player has blackjack! Player wins.")
+        return
+
+    # player's turn
+    while True:
+        choice = input("Hit or stand? ").lower()
+        if choice == "hit":
+            player_hand.append(random.choice(cards))
+            print("Player's hand:", player_hand)
+            if calculate_hand(player_hand) > 21:
+                print("Player busts. Player loses.")
+                return
+        elif choice == "stand":
+            break
+        else:
+            print("Invalid choice. Please enter 'hit' or 'stand'.")
+
+    # dealer's turn
+    while calculate_hand(dealer_hand) < 17:
+        dealer_hand.append(random.choice(cards))
+    print("Dealer's hand:", dealer_hand)
+
+    # determine the winner
+    player_total = calculate_hand(player_hand)
+    dealer_total = calculate_hand(dealer_hand)
+    if player_total > 21:
+        print("Player busts. Player loses.")
+    elif dealer_total > 21:
+        print("Dealer busts. Player wins.")
+    elif player_total > dealer_total:
+        print("Player wins.")
+    elif dealer_total > player_total:
+        print("Dealer wins.")
+    else:
+        print("It's a tie.")
+
+
+play_blackjack()
+
+
+while True:
+    play_again = input("Do you want to play again? (yes/no)").lower()
+    if play_again == "yes":
+        play_blackjack()
+    else:
+        print("Thank you for playing!")
+        break
+
